@@ -89,7 +89,7 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
 	   
 
 client.on("message", (message) => {
-    if (message.content.startsWith("+ban ")) {
+    if (message.content.startsWith("=ban ")) {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('⚠ ماعندك الصلاحيات');
         var member= message.mentions.members.first();
         member.ban().then((member) => {
@@ -105,7 +105,7 @@ client.on("message", (message) => {
 
 client.on('message', message => {
     if (message.author.bot) return;
-    if (message.content.startsWith("+pic")) {
+    if (message.content.startsWith("=pic")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
@@ -125,7 +125,7 @@ client.on('message', message => {
 
 
 client.on('message' , async (message) => {
-       if(message.content.startsWith("+clear")) {
+       if(message.content.startsWith("=clear")) {
            let args = message.content.split(" ").slice(1);
  if (isNaN(args[0])) return message.channel.send('**Please supply a valid amount of messages to purge**');
   if (args[0] > 100) return message.channel.send('**Please supply a number less than 100**');
@@ -151,7 +151,7 @@ message.channel.stopTyping()
   
 client.on('message', message => {
               if(!message.channel.guild) return;
-    if(message.content.startsWith('+bc')) {
+    if(message.content.startsWith('=bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -295,7 +295,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
     let toKick = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith(prefix + '+kick')) {
+   if(message.content.startsWith(prefix + '=kick')) {
        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**# - You dont have enough permissions!**');
        if(toKick.bannable) return message.reply("**# - I cannot kick someone with a higher role than me!**");
        if(!toReason) return message.reply("**# - Supply a reason!**")
@@ -322,7 +322,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   client.on('message', message => {
 
 
-if (message.content === prefix + "+mutechannel") {
+if (message.content === prefix + "=mutechannel") {
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You don’t have `Manage Messages` permissions**');
            message.channel.overwritePermissions(message.guild.id, {
          SEND_MESSAGES: false
@@ -351,7 +351,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You
   
   
   client.on('message', eyad => {
-  if (eyad.content.startsWith('+vban')) {
+  if (eyad.content.startsWith('=vban')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
@@ -387,7 +387,7 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(10000)})
 
 
   client.on('message', eyad => {
-  if (eyad.content.startsWith('+uvban')) {
+  if (eyad.content.startsWith('=uvban')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
  let men = eyad.mentions.users.first()
  let mas = eyad.author
@@ -423,7 +423,7 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(15000)})
 
 
   client.on('message', eyad => {
-  if (eyad.content.startsWith('+uvban')) {
+  if (eyad.content.startsWith('=uvban')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
  let men = eyad.mentions.users.first()
  let mas = eyad.author
@@ -486,7 +486,7 @@ message.channel.send(embed)
 
   client.on('message', message => {
 if(!message.channel.guild) return;
-if (message.content.startsWith("$ping")) {
+if (message.content.startsWith("=ping")) {
     message.channel.sendMessage(`Pong ! \`${Date.now() - message.createdTimestamp} ms\`:watch:`);
     }
 });
